@@ -4,8 +4,9 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class AccountSetting : MonoBehaviour {
+    public static string nowUser;
     string signAccount_Web = "http://192.192.246.184/~u1025104/Unity/OldPlayerEnter.php";
-    string createAccount = "http://192.192.246.184/~u1025104/Unity/NewPlayerEnter.php";
+    string createAccount_Web = "http://192.192.246.184/~u1025104/Unity/NewPlayerEnter.php";
     string changeAccount_Web = "http://192.192.246.184/~u1025104/Unity/ChangePlayerEnter.php";
     [SerializeField] UIControll StartUI_UIControll;
     [SerializeField] UIControll SignAccountUI_UIControll;
@@ -34,11 +35,7 @@ public class AccountSetting : MonoBehaviour {
     [SerializeField] Text ChangeUIShowID_Text;
     [SerializeField] Text ChangeUIShowPW_Text;
     [SerializeField] Text ChangeUIShowFailID_Text;
-
-    public static string nowUser;
     string CheckUIInputAccount_String;
-
-
     public void SignAccount() {
         StartCoroutine("PostSignAccount");
     }
@@ -83,7 +80,7 @@ public class AccountSetting : MonoBehaviour {
             SignAccountUI_UIControll.nowUINumber = 3;
         }
     }
-    public IEnumerator PostCreateAccount() {
+    private IEnumerator PostCreateAccount() {
 
         WWWForm form = new WWWForm();
         Dictionary<string, string> data = new Dictionary<string, string>();
@@ -93,7 +90,7 @@ public class AccountSetting : MonoBehaviour {
         foreach (KeyValuePair<string, string> post in data) {
             form.AddField(post.Key, post.Value);
         }
-        WWW www = new WWW(createAccount, form);
+        WWW www = new WWW(createAccount_Web, form);
         yield return www;
         //Success
         if (www.text == "0") {
@@ -144,7 +141,7 @@ public class AccountSetting : MonoBehaviour {
             CheckAccountUI_UIControll.nowUINumber = 3;
         }
     }
-    public IEnumerator PostChangeAccount() {
+    private IEnumerator PostChangeAccount() {
 
         WWWForm form = new WWWForm();
         Dictionary<string, string> data = new Dictionary<string, string>();
