@@ -37,16 +37,16 @@ public class AccountSetting : MonoBehaviour {
     [SerializeField] Text ChangeUIShowFailID_Text;
     string CheckUIInputAccount_String;
     public void SignAccount() {
-        StartCoroutine("PostSignAccount");
+        StartCoroutine(PostSignAccount());
     }
     public void CreateAccount() {
-        StartCoroutine("PostCreateAccount");
+        StartCoroutine(PostCreateAccount());
     }
     public void CheckSignAccount() {
-        StartCoroutine("PostCheckAccount");
+        StartCoroutine(PostCheckAccount());
     }
     public void ChangeSignAccount() {
-        StartCoroutine("PostChangeAccount");
+        StartCoroutine(PostChangeAccount());
     }
     private IEnumerator PostSignAccount() { 
         WWWForm form = new WWWForm();

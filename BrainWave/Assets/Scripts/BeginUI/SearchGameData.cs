@@ -8,9 +8,10 @@ public class SearchGameData : MonoBehaviour {
     public Text showGameData_Text;
     public Text showTime_Text;
     string gameData_Web = "http://192.192.246.184/~u1025104/Unity/gamerecord.php";
+    string mindData_Web = "http://192.192.246.184/~u1025104/Unity/EnterMind.php";
     public void SearchGameEnter() {
         showTime_Text.text = startTime_InputField.text + "~" + endTime_InputField.text;
-        StartCoroutine("SearchGameRecord");
+        StartCoroutine(SearchGameRecord());
     }
     public void SearchGameShowBack() {
         startTime_InputField.text = "";
@@ -19,7 +20,7 @@ public class SearchGameData : MonoBehaviour {
         showGameData_Text.text = "";
     }
     public void SearchMind() {
-        Application.OpenURL("http://192.192.246.184/~u1025104/Unity/EnterMind.php");
+        Application.OpenURL(mindData_Web);
     }
     private IEnumerator SearchGameRecord() {
         WWWForm form = new WWWForm();
