@@ -10,7 +10,7 @@ public class MindSave : MonoBehaviour {
     [SerializeField] MindGear mindGear;
 
     //0 : attention, 1 : meditation. 2 : delta, 3 : theta, 4 : lowAlpha, 5 : highAlpha, 6 : lowBeta, 7 : highBeta. 8 : lowGamma, 9 : highGamma
-    float[] saveMindValue = new float[10];
+    [HideInInspector] public float[] saveMindValue = new float[10];
     string[] mindValueName = new string[11] { "poorSignal :", "attention :", "meditation :", "delta :", "theta :", "lowAlpha :", "highAlpha :", "lowBeta :", "highBeta :", "lowGamma :", "highGamma :" };
     bool stopPostPartMind_Bool = false;
     bool stopPostAllMind_Bool = false;
