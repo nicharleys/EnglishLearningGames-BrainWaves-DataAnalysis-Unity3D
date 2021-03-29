@@ -6,7 +6,7 @@ public class MindLink : MonoBehaviour {
     [SerializeField] Text showMindValue_Text;
     [SerializeField] Text comPortPlaceholder_Text;
     [SerializeField] Button link_Button;
-    [SerializeField] InputField comPort_InputField;
+    [SerializeField] public InputField comPort_InputField;
     bool linkStart_Bool = false;
     bool tab_Bool = false;
     void Update() {

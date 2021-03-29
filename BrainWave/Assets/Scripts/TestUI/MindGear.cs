@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
 public class MindGear : MonoBehaviour {
     //0 : ifconnecteds, 1: ifconnecterrors, 2 : ifdisconnects
     [SerializeField] Text[] connectStatusPrompt_Text;
@@ -29,7 +28,7 @@ public class MindGear : MonoBehaviour {
     void OnHeadsetDataReceived(Hashtable values) {
         mindValue = values;
     }
-    void OnApplicationQuit() {
+    public void OnApplicationQuit() {
         SendMessage("OnHeadsetDisconnectionRequest");
     }
     private IEnumerator ConnectStatus(Text connectStatusPrompt) {
