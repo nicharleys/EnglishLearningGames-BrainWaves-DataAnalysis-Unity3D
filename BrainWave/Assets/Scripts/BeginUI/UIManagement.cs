@@ -6,7 +6,6 @@ public class UIManagement : MonoBehaviour {
  	[SerializeField] UIControll[] secondUI;
 	[SerializeField] UIControll[] thirdUI;
 	[SerializeField] UIControll[] fourthUI;
-	// Use this for initialization
 	[TextArea(5, 10)]
 	[SerializeField] string showUIStatus;
 	string temp;

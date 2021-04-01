@@ -27,7 +27,7 @@ public class SearchGameData : MonoBehaviour {
         Dictionary<string, string> data = new Dictionary<string, string>();
         data.Add("start", startTime_InputField.text);
         data.Add("end", endTime_InputField.text);
-        data.Add("acnum", AccountSetting.nowUser);
+        data.Add("acnum", PlayerPrefs.GetString("UserAccount"));
         foreach (KeyValuePair<string, string> post in data) {
             form.AddField(post.Key, post.Value);
         }

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class AccountSetting : MonoBehaviour {
-    public static string nowUser;
     string signAccount_Web = "http://192.192.246.184/~u1025104/Unity/OldPlayerEnter.php";
     string createAccount_Web = "http://192.192.246.184/~u1025104/Unity/NewPlayerEnter.php";
     string changeAccount_Web = "http://192.192.246.184/~u1025104/Unity/ChangePlayerEnter.php";
@@ -62,7 +61,7 @@ public class AccountSetting : MonoBehaviour {
         //Success
         if (www.text == "1") {
             SignUIShowID_Text.text = "ID：" + SignUIInputAccount_InputField.text;
-            nowUser = SignUIInputAccount_InputField.text;
+            PlayerPrefs.SetString("UserAccount", SignUIInputAccount_InputField.text);
             SignAccountUI_UIControll.ui[1].SetActive(true);
             SignAccountUI_UIControll.ui[0].SetActive(false);
             SignAccountUI_UIControll.nowUINumber = 1;

@@ -27,7 +27,7 @@ public class MindLink : MonoBehaviour {
             comPort_InputField.enabled = false;
             connectStatus_Text.text = "Connecting...";
             SendMessage("OnHeadsetConnectionRequest", comPort_InputField.text);
-            PlayerPrefs.SetString("comPort", comPort_InputField.text);
+            PlayerPrefs.SetString("ComPort", comPort_InputField.text);
             StartCoroutine(DelayEnter(true));
         }
         else {
@@ -37,7 +37,7 @@ public class MindLink : MonoBehaviour {
             SendMessage("OnHeadsetDisconnectionRequest");
             showMindValue_Text.text = "";
             connectStatus_Text.text = "Disonnect";
-            PlayerPrefs.SetString("comPort", "");
+            PlayerPrefs.SetString("ComPort", "");
             StartCoroutine(DelayEnter(false));
         }
     }
@@ -45,8 +45,8 @@ public class MindLink : MonoBehaviour {
         link_Button.GetComponentInChildren<Text>().text = "取消";
         comPort_InputField.enabled = false;
         connectStatus_Text.text = "Connecting...";
-        SendMessage("OnHeadsetConnectionRequest", PlayerPrefs.GetString("comPort"));
-        comPort_InputField.text = PlayerPrefs.GetString("comPort");
+        SendMessage("OnHeadsetConnectionRequest", PlayerPrefs.GetString("ComPort"));
+        comPort_InputField.text = PlayerPrefs.GetString("ComPort");
         StartCoroutine(DelayEnter(true));
 
     }

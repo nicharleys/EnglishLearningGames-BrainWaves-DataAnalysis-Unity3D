@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class player : MonoBehaviour {
+public class PlayerMove : MonoBehaviour {
     [SerializeField] Animator anim;
     [SerializeField] Rigidbody rbody;
     float inputH;
@@ -28,7 +28,6 @@ public class player : MonoBehaviour {
         else if(run) {
             moveX *= 3f;
             moveZ *= 3f;
-
         }
         rbody.velocity = new Vector3(moveX, 0f, moveZ);
     }

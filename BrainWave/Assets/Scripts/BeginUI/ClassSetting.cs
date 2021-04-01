@@ -31,8 +31,7 @@ public class ClassSetting : MonoBehaviour {
     public void ClassChoseEnter() {
         allDataSearchValue = saveClickData_String[0] + saveClickData_String[1] + saveClickData_String[2] + saveClickData_String[3] + saveClickData_String[4] + saveClickData_String[5] + saveClickData_String[6] + saveClickData_String[7]
                            + saveClickData_String[8] + saveClickData_String[9] + saveClickData_String[10] + saveClickData_String[11] + saveClickData_String[12] + saveClickData_String[13] + saveClickData_String[14];
-        PlayerPrefs.SetString("getLS", allDataSearchValue);
-        PlayerPrefs.SetString("oldac", AccountSetting.nowUser);
+        PlayerPrefs.SetString("ClassChose", allDataSearchValue);
         Application.LoadLevel("TestUI");
     }
     public void ClassSearchEnter(Text ShowData) {
