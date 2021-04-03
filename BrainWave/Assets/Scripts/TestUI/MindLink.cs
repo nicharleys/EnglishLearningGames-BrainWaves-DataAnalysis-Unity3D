@@ -9,6 +9,9 @@ public class MindLink : MonoBehaviour {
     [SerializeField] public InputField comPort_InputField;
     bool linkStart_Bool = false;
     bool tab_Bool = false;
+    void Awake() {
+        showMindValue_Text.enabled = false;
+    }
     void Update() {
         if (Input.GetButtonDown("Tab")) {
             if (tab_Bool == false) {
@@ -17,7 +20,7 @@ public class MindLink : MonoBehaviour {
             }
             else {
                 tab_Bool = false;
-                showMindValue_Text.enabled = true;
+                showMindValue_Text.enabled = false;
             }
         }
     }

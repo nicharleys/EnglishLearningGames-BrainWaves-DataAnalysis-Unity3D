@@ -209,9 +209,9 @@ public class QuestionRelated : MonoBehaviour {
         showPlayTime_Text.text = hourTimeCount_Int + ":" + minuteTimeCount_Int + ":" + secondTimeCount_Int;
     }
     IEnumerator ShowAnswerMessage(Text message) {
-        message.enabled = true;
+        message.GetComponent<Text>().enabled = true;
         yield return new WaitForSeconds(2);
-        message.enabled = false;
+        message.GetComponent<Text>().enabled = false;
     }
     public void GamePrompt() {
         if(promptClick_Bool == false) {

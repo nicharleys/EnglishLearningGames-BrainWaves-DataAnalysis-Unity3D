@@ -8,13 +8,16 @@ public class MindSave_Game : MonoBehaviour {
     [SerializeField] Text connectStatus_Text;
     [SerializeField] Text showMindValue_Text;
     [SerializeField] MindGear mindGear;
-
+    [SerializeField] MindLink mindLink;
     //0 : attention, 1 : meditation. 2 : delta, 3 : theta, 4 : lowAlpha, 5 : highAlpha, 6 : lowBeta, 7 : highBeta. 8 : lowGamma, 9 : highGamma
     [HideInInspector] public float[] saveMindValue = new float[10];
     string[] mindValueName = new string[11] { "poorSignal :", "attention :", "meditation :", "delta :", "theta :", "lowAlpha :", "highAlpha :", "lowBeta :", "highBeta :", "lowGamma :", "highGamma :" };
 
     thinkdata mindData;
     List<thinkdata> _thinkDataListFull = new List<thinkdata>();
+    void Start() {
+        mindLink.Autolinkmind();
+    }
     void Update() {
         ShowMindValue();
     }
