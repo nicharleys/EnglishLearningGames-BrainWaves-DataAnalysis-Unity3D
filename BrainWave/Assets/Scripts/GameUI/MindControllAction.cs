@@ -73,7 +73,6 @@ public class MindControllAction : MonoBehaviour {
         }
         else if(mindControllValue.meditationSum_Int >= 500) {
             thirdPersonController.walkSpeed = 5f;
-            thirdPersonController.runSpeed = 5f;
             playerMove.controllPlayerRun_Bool = true;
         }
     }
@@ -409,7 +408,7 @@ public class MindControllAction : MonoBehaviour {
                 }
             }
         }
-        StartCoroutine(valueTransfer.DelayPost(valueTransfer.controllThingDrop_Bool, 3));
+        StartCoroutine(DelayPostThingDrop());
     }
     public void CancelMindControll() {
         if(nowClickThing_GameObject != null) {
@@ -438,5 +437,9 @@ public class MindControllAction : MonoBehaviour {
             nowClickThing_GameObject.GetComponent<Rotator>().enabled = false;
             mindControllValue.attention_Slider.value = 0;
         }
+    }
+    public IEnumerator DelayPostThingDrop() {
+        yield return new WaitForSeconds(3f);
+        valueTransfer.controllThingDrop_Bool = false;
     }
 }

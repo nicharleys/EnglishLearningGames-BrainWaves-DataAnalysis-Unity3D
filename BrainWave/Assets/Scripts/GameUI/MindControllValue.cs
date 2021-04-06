@@ -9,11 +9,11 @@ public class MindControllValue : MonoBehaviour {
     [SerializeField] public Slider attention_Slider;
     [SerializeField] public Slider meditation_Slider;
     [SerializeField] public Slider playerHp_Slider;
-    [HideInInspector] public int playerHp_Int = 10;
-    [HideInInspector] public int playerDead_Int = 0;
-    [HideInInspector] public int attentionSum_Int = 0;
-    [HideInInspector] public int meditationSum_Int = 0;
-    [HideInInspector] public int timer1_Int = 0;
+    [HideInInspector] public int playerHp_Int;
+    [HideInInspector] public int playerDead_Int;
+    [HideInInspector] public int attentionSum_Int;
+    [HideInInspector] public int meditationSum_Int;
+    [HideInInspector] public int timer1_Int;
     int timer2_Int = 0;
     bool controllTimeCount1_Bool = false;
     bool controllTimeCount2_Bool = false;
@@ -24,17 +24,21 @@ public class MindControllValue : MonoBehaviour {
     void Awake() {
         StartCoroutine(valueTransfer.GetLevel(getAttentionLevel_Web, "AttentionLevel"));
         StartCoroutine(valueTransfer.GetLevel(getMeditationLevel_Web, "MeditationLevel"));
+        playerHp_Int = 10;
+        playerDead_Int = 0;
+        attentionSum_Int = 0;
+        meditationSum_Int = 0;
     }
     void Update() {
         CountAttention();
         CountMeditation();
     }
-    private void TransferValue(bool controllUpdate, bool controllTimeCount, int timer, string web) {
+    private void TransferValue(bool controllUpdate, int boolNumber, bool controllTimeCount, int timer, string web) {
         if(mindSave_Game.saveMindValue[0] > 0 && mindSave_Game.saveMindValue[3] < 200) {
             if(controllUpdate == false) {
                 controllUpdate = true;
                 StartCoroutine(valueTransfer.MindUpdate(web));
-                StartCoroutine(valueTransfer.DelayPost(controllUpdate, 1));
+                StartCoroutine(DelayPostUpdate(boolNumber));
             }
             if(controllTimeCount == false) {
                 TimeCount(timer, controllTimeCount);
@@ -55,7 +59,7 @@ public class MindControllValue : MonoBehaviour {
         }
     }
     private void CountMeditation() {
-        TransferValue(valueTransfer.controllUpdate2_Bool, controllTimeCount2_Bool, timer2_Int, saveMind2_Web);
+        TransferValue(valueTransfer.controllUpdate2_Bool, 2, controllTimeCount2_Bool, timer2_Int, saveMind2_Web);
         if(mindSave_Game.saveMindValue[1] / 1000 >= ( 55 - PlayerPrefs.GetInt("MeditationLevel") ))
             Mindcount_MoreThan(meditationSum_Int, meditation_Slider, 4);
         else if(mindSave_Game.saveMindValue[1] / 1000 > ( 35 - PlayerPrefs.GetInt("MeditationLevel") ) && mindSave_Game.saveMindValue[1] / 1000 <= ( 55 - PlayerPrefs.GetInt("MeditationLevel") ))
@@ -67,8 +71,7 @@ public class MindControllValue : MonoBehaviour {
     }
     private void CountAttention() {
         if(( valueTransfer.controllMindPushThing_Bool == true || valueTransfer.controllMindTakeThing_Bool == true ) && mindControllAction.nowClickThing_GameObject.transform.parent != player.transform) {
-            TransferValue(valueTransfer.controllUpdate1_Bool, controllTimeCount1_Bool, timer1_Int, saveMind1_Web);
-
+            TransferValue(valueTransfer.controllUpdate1_Bool, 1, controllTimeCount1_Bool, timer1_Int, saveMind1_Web);
             if(mindSave_Game.saveMindValue[0] >= ( 50 - PlayerPrefs.GetInt("AttentionLevel") ) && mindSave_Game.saveMindValue[0] < ( 75 - PlayerPrefs.GetInt("AttentionLevel") ))
                 Mindcount_MoreThan(attentionSum_Int, attention_Slider, 2);
             else if(mindSave_Game.saveMindValue[0] >= ( 75 - PlayerPrefs.GetInt("AttentionLevel") ) && mindSave_Game.saveMindValue[0] < 100)
@@ -87,5 +90,12 @@ public class MindControllValue : MonoBehaviour {
         yield return new WaitForSeconds(1);
         timer++;
         controllTimeCount = false;
+    }
+    public IEnumerator DelayPostUpdate(int boolNumber) {
+        yield return new WaitForSeconds(1f);
+        if(boolNumber == 1)
+            valueTransfer.controllUpdate1_Bool = false;
+        else
+            valueTransfer.controllUpdate2_Bool = false;
     }
 }

@@ -34,16 +34,16 @@ public class MonsterControll : MonoBehaviour {
                     if(mindControllValue.meditationSum_Int <= 10 && Vector3.Distance(monster.transform.position, AttackPlayerPosition) <= 0.7f) {
                         if(valueTransfer.controllHpCost_Bool == false) {
                             valueTransfer.controllHpCost_Bool = true;
-                            if(mindControllValue.playerHp_Int > 1) {
-                                StartCoroutine(showMessage.ShowMessages(beAttackedMessage_Text));
-                            }
+                            StartCoroutine(showMessage.ShowMessages(beAttackedMessage_Text));
                             mindControllAction.CancelMindControll();
                             mindControllValue.player.transform.Translate(Vector3.forward * Time.deltaTime * -25f);
                             mindControllValue.playerHp_Slider.value--;
                             mindControllValue.playerHp_Int--;
-                            StartCoroutine(valueTransfer.DelayPost(valueTransfer.controllHpCost_Bool, 1));
+                            StartCoroutine(DelayPostHpCost());
                         }
                         if(mindControllValue.playerHp_Int == 0) {
+                            beAttackedMessage_Text.GetComponent<Text>().enabled = false;
+                            valueTransfer.controllHpCost_Bool = true;
                             mindControllAction.CancelMindControll();
                             Vector3 startPosition = new Vector3(1.325f, 10.69f, -1f);
                             mindControllValue.player.transform.position = startPosition;
@@ -70,5 +70,9 @@ public class MonsterControll : MonoBehaviour {
         else if(Vector3.Distance(monster.transform.position, goToPosition) <= distance) {
             monster.transform.Rotate(new Vector3(-90, 0, 0));
         }
+    }
+    public IEnumerator DelayPostHpCost() {
+        yield return new WaitForSeconds(1f);
+        valueTransfer.controllHpCost_Bool = false;
     }
 }

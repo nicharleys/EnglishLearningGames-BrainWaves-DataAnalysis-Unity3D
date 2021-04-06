@@ -34,9 +34,9 @@ public class MindGear : MonoBehaviour {
     private IEnumerator ConnectStatus(Text connectStatusPrompt) {
         if (waitConnectStatus == false) {
             waitConnectStatus = true;
-            connectStatusPrompt.enabled = true;
+            connectStatusPrompt.GetComponent<Text>().enabled = true;
             yield return new WaitForSeconds(2);
-            connectStatusPrompt.enabled = false;
+            connectStatusPrompt.GetComponent<Text>().enabled = false;
             waitConnectStatus = false;
         }
     }

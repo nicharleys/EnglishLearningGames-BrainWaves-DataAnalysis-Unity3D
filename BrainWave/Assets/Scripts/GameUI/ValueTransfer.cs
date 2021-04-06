@@ -55,8 +55,4 @@ public class ValueTransfer : MonoBehaviour {
         yield return www;
         PlayerPrefs.SetInt(setName, int.Parse(www.text));
     }
-    public IEnumerator DelayPost(bool controll, int second) {
-        yield return new WaitForSeconds(second);
-        controll = false;
-    }
 }
