@@ -8,10 +8,10 @@
 <br><br><br>
 
 <div align="center">
-   <img src="https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D/Gif/1.gif"  width="400" height="228" "  />
-   <img src="https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D/Gif/2.gif"  width="400" height="228" " /> <br>    
-   <img src="https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D/Gif/3.gif"  width="400" height="228" "  />
-   <img src="https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D/Gif/4.gif"  width="400" height="228" " /> 
+   <img src="https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D/blob/main/Gif/1.gif"  width="400" height="228" "  />
+   <img src="https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D/blob/main/Gif/2.gif"  width="400" height="228" " /> <br>    
+   <img src="https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D/blob/main/Gif/3.gif"  width="400" height="228" "  />
+   <img src="https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D/blob/main/Gif/4.gif"  width="400" height="228" " /> 
 </div>
 
 <br><br><br>
