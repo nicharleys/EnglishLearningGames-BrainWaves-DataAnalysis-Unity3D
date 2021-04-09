@@ -145,16 +145,6 @@ https://www.apachefriends.org/zh_tw/index.html
         <td>
             <div>
             <b>1.</b><br>
-            <b>在資料庫頁面找到導入的選項</b>
-           </div>
-        </td>
-    </tr>
-</table>   
-<table border="1">
-    <tr>
-        <td>
-            <div>
-            <b>2.</b><br>
             <b>將專案內的XAMPP資料夾取代原有資料夾</b>
            </div>
         </td>
