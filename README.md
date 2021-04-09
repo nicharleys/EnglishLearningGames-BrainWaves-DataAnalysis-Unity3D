@@ -2,7 +2,7 @@
  
 ### 作者:[nicharleys](https://github.com/nicharleys) 建置
 
-<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D" alt="Hits" data-canonical-src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D" style="max-width:100%;"></a> 
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D1" alt="Hits" data-canonical-src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/nicharleys/EnglishLearningGames-BrainWaves-DataAnalysis-Unity3D" style="max-width:100%;"></a> 
 
 
 <br><br><br>
